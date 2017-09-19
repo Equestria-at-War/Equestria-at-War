@@ -1,0 +1,15 @@
+﻿name="Equestria at War"
+path="mod/equestria/"
+replace_path="history/countries"
+replace_path="history/states"
+replace_path="map/supplyareas"
+replace_path="map/strategicregions"
+replace_path="history/units"
+tags={
+	"Alternative History"
+	"Events"
+	"Map"
+}
+picture="equestria.jpg"
+remote_file_id="1096009291"
+supported_version="1.4.2"

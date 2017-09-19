@@ -1,0 +1,15 @@
+state={
+	id=269
+	name="STATE_269"
+	provinces={
+		270 274 275 330 6113 6180 6343 9033 9245 9291 9339 11027 11158 11227 11340 11369 11381 
+	}
+	manpower=213113
+	history={
+		owner = YAK
+		add_core_of = YAK
+	}
+	
+	state_category = rural
+	buildings_max_level_factor=1.000
+}

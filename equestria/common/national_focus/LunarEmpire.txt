@@ -1,0 +1,511 @@
+focus_tree = {
+	id = LunarEmpire
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = NLR
+		}
+	}
+	default = no
+	focus = {
+		id = NLR_volunteers
+		icon = GFX_focus_generic_little_entente
+		cost = 6
+		x = 1
+		y = 0
+		ai_will_do = { factor = 50 }
+		bypass = {
+			has_global_flag = equestrian_civil_war_ended
+		}
+		completion_reward = {
+			country_event = { id = lunas.9 days = 2 }
+		}
+
+	}
+	focus = {
+		id = NLR_civil_war_end
+		icon = GFX_goal_nlr
+		cost = 17.00
+		x = 3
+		y = 1
+		ai_will_do = { factor = 200 }
+		available = {
+			has_global_flag = equestrian_civil_war_ended
+		}
+		completion_reward = {
+			remove_ideas = eqs_civil_war
+			remove_ideas = NLR_military_police
+			set_global_flag = nlr_civil_war_victory
+		}
+	}
+	focus = {
+		id = NLR_war_plan
+		icon = GFX_goal_generic_military_deal
+		cost = 9
+		x = 3
+		y = 2
+		ai_will_do = { factor = 200 }
+		available = {
+			has_war_with = CHN
+		}
+		completion_reward = {
+			add_ideas = NLR_war_plan
+		}
+	}
+	focus = {
+		id = NLR_military_police
+		icon = GFX_goal_generic_military_deal
+		cost = 10.00
+		x = 4
+		y = 0
+		ai_will_do = { factor = 150 }
+		completion_reward = {
+			add_ideas = NLR_military_police
+		}
+	}
+	focus = {
+		id = NLR_iron_hoof
+		icon = GFX_goal_continuous_suppression
+		cost = 5.00
+		x = 6
+		y = 0
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			swap_ideas = { remove_idea = NLR_fragile_rule add_idea = NLR_celestial_resistance } 
+		}
+	}
+	focus = {
+		id = NLR_civil_war_economy
+		icon = GFX_focus_secret_rearmament
+		cost = 10.00
+		x = 9
+		y = 0
+		ai_will_do = { factor = 160 }
+		bypass = {
+			has_global_flag = equestrian_civil_war_ended
+		}
+		completion_reward = {
+			add_ideas = NLR_fight_to_death
+		}
+	}
+	focus = {
+		id = NLR_crush_stalliongrad
+		icon = GFX_goal_crush_stalliongrad
+		cost = 10.00
+		x = 16
+		y = 0
+		available = {
+			has_global_flag = equestrian_civil_war_ended
+		}
+		bypass = {
+			NOT = { country_exists = STG }
+			STG = { is_puppet_of = NLR }
+		}
+		completion_reward = {
+			create_wargoal = { target = STG type = annex_everything }
+		}
+	}
+	focus = {
+		id = NLR_support_NMS
+		icon = GFX_focus_NZL_bob_semple_tank
+		cost = 2
+		prerequisite = {
+			focus = NLR_volunteers
+		}
+		x = 1
+		y = 1
+		bypass = {
+			NOT = { country_exists = NMS }
+		}
+		completion_reward = {
+			country_event = { id = lunas.10 days = 2 }
+		}
+	}
+	focus = {
+		id = NLR_southern_bases
+		icon = GFX_focus_generic_strike_at_democracy2
+		cost = 13.00
+		prerequisite = {
+			focus = NLR_support_NMS
+		}
+		x = 1
+		y = 2
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			add_political_power = 150
+		}
+	}
+	focus = {
+		id = NLR_destroy_VAN_and_BAL
+		icon = GFX_focus_yug_pan_slavic_congress
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_southern_bases
+		}
+		available = {
+			has_global_flag = equestrian_civil_war_ended
+		}
+		x = 1
+		y = 3
+		completion_reward = {
+			create_wargoal = { target = BAL type = annex_everything }
+			create_wargoal = { target = VAN type = annex_everything }
+		}
+	}
+	focus = {
+		id = NLR_destroy_SCS
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_southern_bases
+		}
+		bypass = {
+			NOT = { country_exists = SCS }
+		}
+		available = {
+			has_global_flag = equestrian_civil_war_ended
+		}
+		x = 1
+		y = 4
+		completion_reward = {
+			create_wargoal = { target = SCS type = annex_everything }
+		}
+	}
+	focus = {
+		id = NLR_crush_resistance
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 13.00
+		prerequisite = {
+			focus = NLR_military_police
+		}
+		prerequisite = {
+			focus = NLR_iron_hoof
+		}
+		ai_will_do = {
+			factor = 140
+		}
+		x = 5
+		y = 1
+		completion_reward = {
+			remove_ideas = NLR_celestial_resistance
+		}
+	}
+	focus = {
+		id = NLR_capital
+		icon = GFX_goal_continuous_def_against_influence
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_crush_resistance
+		}
+		available = {
+			has_global_flag = equestrian_civil_war_ended
+		}
+		x = 5
+		y = 2
+		completion_reward = {
+			country_event = {
+				days = 2 id = lunas.11
+			}
+		}
+	}
+	focus = {
+		id = NLR_totalitarian_state
+		icon = GFX_goal_nightmare_moon
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_capital
+		}
+		x = 5
+		y = 3
+		completion_reward = {
+			add_ideas = lunar_rule
+			custom_effect_tooltip = luna_cores
+			hidden_effect = {
+					every_state = {
+		                limit = {
+		                    is_core_of = EQS
+		                }
+		                add_core_of = NLR
+		            	}
+		           }
+		}
+	}
+	focus = {
+		id = NLR_factories
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_civil_war_economy
+		}
+		x = 9
+		y = 1
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.4
+				uses = 3
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = NLR_civilian_factories
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_factories
+		}
+		x = 9
+		y = 2
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = NLR_intensive_mining
+		icon = GFX_goal_generic_air_production
+		cost = 15.00
+		prerequisite = {
+			focus = NLR_civilian_factories
+		}
+		x = 9
+		y = 3
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 15
+				state = 17
+			}
+			add_resource = {
+				type = aluminium
+				amount = 15
+				state = 75
+			}
+			add_resource = {
+				type = oil
+				amount = 10
+				state = 228
+			}
+		}
+	}
+	focus = {
+		id = NLR_shadowbolts
+		icon = GFX_goal_shadowbolts
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_civil_war_economy
+		}
+		x = 11
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.3
+				uses = 2
+				technology = fighter1
+				technology = fighter2
+			}
+		}
+	}
+	focus = {
+		id = NLR_new_tanks
+		icon = GFX_goal_generic_army_tanks
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_shadowbolts
+		}
+		x = 11
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 1
+				category = armor
+			}
+		}
+	}
+	focus = {
+		id = NLR_industry_works
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_civil_war_economy
+		}
+		x = 13
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.60
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = NLR_subjugate_Crystal_empire
+		icon = GFX_goal_crystal_empire_sub
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_crush_stalliongrad
+		}
+		x = 16
+		y = 1
+		available = {
+			has_global_flag = equestrian_civil_war_ended
+		}
+		completion_reward = {
+			country_event = {
+				days = 2 id = lunas.12
+			}
+		}
+	}
+	focus = {
+		id = NLR_claims_on_Olenia
+		icon = GFX_goal_anti_comintern_pact
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_subjugate_Crystal_empire
+		}
+		x = 14
+		y = 2
+		bypass = {
+			NOT = { country_exists = OLE }
+		}
+		completion_reward = {
+			create_wargoal = { target = OLE type = puppet }
+		}
+	}
+	focus = {
+		id = NLR_CHN_conflict
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_subjugate_Crystal_empire
+		}
+		x = 16
+		y = 2
+		completion_reward = {
+			create_wargoal = { target = CHN type = annex_everything }
+		}
+	}
+	focus = {
+		id = NLR_claims_on_griffons
+		icon = GFX_goal_demand_sudetenland
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_subjugate_Crystal_empire
+		}
+		x = 18
+		y = 2
+		completion_reward = {
+			create_wargoal = { target = GRF type = annex_everything }
+		}
+	}
+	focus = {
+		id = NLR_research_center
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = NLR_intensive_mining
+		}
+		prerequisite = {
+			focus = NLR_new_tanks
+		}
+		x = 10
+		y = 4
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+}
