@@ -1886,6 +1886,7 @@ country_event = {
     trigger = {
         tag = EQS
         country_exists = NLR
+        is_puppet = no
         has_global_flag = equestrian_civil_war_ended
     }
     mean_time_to_happen = { days = 30 }
@@ -2159,6 +2160,28 @@ country_event = { ## Annex STG after Darkwing
     ai_chance = { factor = 0 }
     }
 }
+country_event = { ## NLR Peace
+    id = equestria.128
+    title = equestria.128.t
+    desc = equestria.128.d
+    picture = GFX_event_celestia_poster
+    
+    trigger = {
+        OR = {
+            tag = EQS
+            tag = NLR
+        }
+        has_global_flag = equestrian_civil_war
+        NOT = { EQS = { has_war_with = NLR } }
+    }
+    mean_time_to_happen = { days = 5 }
+    fire_only_once = yes
+    option = {
+    name = equestria.128.a
+    ai_chance = { factor = 100 }
+    remove_ideas = eqs_civil_war
+    }
+}
 #######################################
 country_event = { #### Changeling Spies
     id = equestriachn.1
@@ -2174,7 +2197,7 @@ country_event = { #### Changeling Spies
     add_political_power = -500
     custom_effect_tooltip = finding_spies1
     hidden_effect = {
-        country_event = { id = equestriachn.2 days = 280 }
+        country_event = { id = equestriachn.2 days = 150 }
         }
     ai_chance = { factor = 50 }
     }
@@ -2184,7 +2207,7 @@ country_event = { #### Changeling Spies
     ai_chance = { factor = 30 }
     custom_effect_tooltip = finding_spies2
     hidden_effect = {
-        country_event = { id = equestriachn.2 days = 430 }
+        country_event = { id = equestriachn.2 days = 210 }
         }
     }
     option = { ## Don't have enough resources for that
@@ -2193,7 +2216,7 @@ country_event = { #### Changeling Spies
     ai_chance = { factor = 10 }
     custom_effect_tooltip = finding_spies3
     hidden_effect = {
-        country_event = { id = equestriachn.2 days = 600 }
+        country_event = { id = equestriachn.2 days = 560 }
         }
     }
     option = { ## Do nothing

@@ -139,7 +139,7 @@ create_field_marshal = {
 	id = 10101
 }
 create_corps_commander = {
-	name = "Bright Something"
+	name = "Toki Bright"
 	picture = "BrightSomething.tga"
 	traits = { }
 	skill = 2

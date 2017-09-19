@@ -96,6 +96,13 @@ country_event = { ## Equestrian event from above
 
         option = {
             name = cryscr.6.a
+            ai_chance = {
+            base = 50
+            modifier = {
+                factor = 100
+                is_historical_focus_on = yes
+                }
+            }
             CRY = {
                 country_event = { id = cryscr.7 days = 1 }
             }
@@ -103,6 +110,13 @@ country_event = { ## Equestrian event from above
         }
         option = {
             name = cryscr.6.b
+            ai_chance = {
+            base = 50
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+                }
+            }
             CRY = {
                 country_event = { id = cryscr.8 days = 1 }
                 add_opinion_modifier = { target = EQS modifier = eqs_refused_holding_games }
@@ -289,7 +303,7 @@ country_event = { ## Walk to the club place
         id = cryscr.15
         title = cryscr.15.t
         desc = cryscr.15.d
-        picture = GFX_event_crystal_city
+        picture = GFX_event_apartment_club
 
         is_triggered_only = yes
 
@@ -311,7 +325,7 @@ country_event = { ## Into the club
         id = cryscr.16
         title = cryscr.16.t
         desc = cryscr.16.d
-        picture = GFX_event_crystal_city
+        picture = GFX_event_apartment_club
 
         is_triggered_only = yes
 
@@ -326,7 +340,7 @@ country_event = { ## Inside the club
         id = cryscr.17
         title = cryscr.17.t
         desc = cryscr.17.d
-        picture = GFX_event_crystal_city
+        picture = GFX_event_apartment_club
 
         is_triggered_only = yes
 
@@ -357,7 +371,7 @@ country_event = { ## Post-Story
         id = cryscr.19
         title = cryscr.19.t
         desc = cryscr.19.d
-        picture = GFX_event_crystal_city
+        picture = GFX_event_apartment_club
 
         is_triggered_only = yes
 
@@ -378,13 +392,113 @@ country_event = { ## Out of the club
 
         option = {
             name = cryscr.20.a
+            custom_effect_tooltip = join_the_club_tlp
             set_country_flag = joined_the_club
             ai_chance = { factor = 100 }
         }
         option = {
-            name = cryscr.20.a
-            add_political_power = 50
+            name = cryscr.20.b
+            custom_effect_tooltip = reported_sombras
             ai_chance = { factor = 0 }
+            hidden_effect = {
+                country_event = {
+                    id = cryscr.21 hours = 10
+                }
+            }
+        }
+        option = {
+            name = cryscr.20.c
+            custom_effect_tooltip = not_reported_sombras
+            set_country_flag = club_not_arrested
+            hidden_effect = {
+                swap_ideas = { remove_idea = sombra_threat add_idea = sombra_threat2 }
+            }
+            ai_chance = { factor = 0 }
+        }
+    }
+country_event = { ## Organization Arrested
+        id = cryscr.21
+        title = cryscr.21.t
+        desc = cryscr.21.d
+        picture = GFX_event_crystal_city
+
+        is_triggered_only = yes
+
+        option = {
+            name = cryscr.21.a
+            add_political_power = 20
+            ai_chance = { factor = 100 }
+            custom_effect_tooltip = less_sombra_tlp
+            hidden_effect = {
+                swap_ideas = { remove_idea = sombra_threat add_idea = sombra_threat_reported }
+            }
+        }
+    }
+country_event = { ## Sombra Civil War if fascism support is high enough after not reporting the club
+        id = cryscr.22
+        title = cryscr.22.t
+        desc = cryscr.22.d
+        picture = GFX_event_sombra_return
+
+        trigger = {
+            tag = CRY
+            fascism > 0.5
+            has_country_flag = club_not_arrested
+        }
+        mean_time_to_happen = { days = 5 }
+        fire_only_once = yes
+        option = {
+            name = cryscr.22.a
+            start_civil_war = {
+                ideology = fascism
+                ruling_party = democratic
+                size = 0.5
+            }
+        }
+    }
+country_event = { ## Library Work Focus
+        id = cryscr.23
+        title = cryscr.23.t
+        desc = cryscr.23.d
+        picture = GFX_event_apartment_club
+
+        is_triggered_only = yes
+
+        option = {
+            name = cryscr.23.a
+            hidden_effect = {
+                country_event = { id = cryscr.24 hours = 5 }
+            }
+        }
+    }
+country_event = { ## Into the library
+        id = cryscr.24
+        title = cryscr.24.t
+        desc = cryscr.24.d
+        picture = GFX_event_apartment_club
+
+        is_triggered_only = yes
+
+        option = {
+            name = cryscr.24.a
+            hidden_effect = {
+                country_event = { id = cryscr.25 hours = 23 }
+            }
+        }
+    }
+country_event = { ## Into the library
+        id = cryscr.25
+        title = cryscr.25.t
+        desc = cryscr.25.d
+        picture = GFX_event_crystal_library
+
+        is_triggered_only = yes
+
+        option = {
+            name = cryscr.25.a
+            hidden_effect = {
+                country_event = { id = cryscr.26 hours = 1 }
+            }
         }
     }
 ############################################################

@@ -1985,7 +1985,7 @@ create_field_marshal = {
 	focus = {
 		id = EQS_Civil_War_End
 		icon = GFX_goal_celestia_raising_the_sun
-		cost = 17.00
+		cost = 21
 		ai_will_do = { factor = 250 }
 		x = 38
 		y = 4

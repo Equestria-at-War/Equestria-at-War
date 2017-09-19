@@ -12,7 +12,10 @@
 ㅇ﻿Polar Bears get generals + some generals for other nations
 ㅇ﻿More city conquest news events
 ㅇ﻿Send spies to Equestria branch in Changeling foci now available, ahahah
-
+ㅇ﻿hotfix 0.4.1: 
+1. Equestria and Lunar Empire may coexist without civil war penalties, if you manage to peace out.
+2. Lunar Empire will not get annexed by Equestria if Equestria was puppeted.
+3. Crystal City is now three different states in preparations for the next update.
 
 [img]https://i.imgur.com/SfKsaHQ.png[/img]
 [h1] 0.3.0 [/h1]

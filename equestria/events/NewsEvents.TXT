@@ -1149,8 +1149,8 @@ news_event = { ## CRYSTAL CITY
 	major = yes
 	
 	trigger = {
-		53 = { is_controlled_by = CHN }
-		53 = { is_owned_by = CRY }
+		344 = { is_controlled_by = CHN }
+		344 = { is_owned_by = CRY }
 		CHN = { has_war_with = CRY }
 		NOT = { has_global_flag = fall_of_crystal_chn }
 	}

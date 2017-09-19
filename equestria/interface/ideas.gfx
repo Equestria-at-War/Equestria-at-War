@@ -500,6 +500,10 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/idea_sinnie_subsidies.dds"
 	}
 	spriteType = {
+		name = "GFX_idea_voskhod"
+		texturefile = "gfx/interface/ideas/idea_voskhod.dds"
+	}
+	spriteType = {
 		name = "GFX_idea_stg_secret_police"
 		texturefile = "gfx/interface/ideas/idea_kgb.dds"
 	}

@@ -1,4 +1,4 @@
-﻿name="Equestria at War"
+name="Equestria at War"
 path="mod/equestria/"
 replace_path="history/countries"
 replace_path="history/states"

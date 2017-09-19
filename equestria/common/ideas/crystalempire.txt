@@ -218,13 +218,48 @@ ideas = {
 				always = yes
 			}
 			allowed_civil_war = {
-				NOT = { has_government = fascism }
+				always = no
 			}
 			removal_cost = -1
 		
 			modifier = {
 				unity_factor = -0.15
 				political_power_gain = -0.25
+			}
+		}
+	}
+	country = {
+		sombra_threat2 = {
+					
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = sombra_threat
+			modifier = {
+				unity_factor = -0.15
+				political_power_gain = -0.25
+				fascism_drift = 0.05
+			}
+		}
+	}
+	country = {
+		sombra_threat_reported = {
+					
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = sombra_threat
+			modifier = {
+				unity_factor = -0.13
+				political_power_gain = -0.17
 			}
 		}
 	}

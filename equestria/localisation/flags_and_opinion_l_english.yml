@@ -59,4 +59,7 @@
  walk_into_the_club:0 "Walk into the club"
  walk_away:0 "Walk away"
  joined_the_club:0 "Joined the club"
- 
+ join_the_club_tlp:0 "Join the club."
+ reported_sombras:0 "Report to the police."
+ not_reported_sombras:0 "Do nothing."
+ less_sombra_tlp:0 "Less Sombra supporters."

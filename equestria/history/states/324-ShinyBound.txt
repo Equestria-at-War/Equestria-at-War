@@ -8,7 +8,7 @@ state={
 		chromium = 5
 		steel = 3
 	}
-	manpower=32400
+	manpower=532400
 	history = {
 		owner = CRY
 		add_core_of = CRY

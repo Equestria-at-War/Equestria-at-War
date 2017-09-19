@@ -2089,7 +2089,18 @@ spriteTypes = {
 		name = "GFX_news_darkwing"
 		texturefile = "gfx/event_pictures/news_darkwing.dds"
 	}
-	
+	spriteType = {
+		name = "GFX_event_apartment_club"
+		texturefile = "gfx/event_pictures/event_apartment_club.dds"
+	}
+	spriteType = {
+		name = "GFX_event_sombra_return"
+		texturefile = "gfx/event_pictures/event_sombra_return.dds"
+	}
+	spriteType = {
+		name = "GFX_event_crystal_library"
+		texturefile = "gfx/event_pictures/event_crystal_library.dds"
+	}
 	
 	
 	

@@ -281,6 +281,8 @@ country_event = { #### Rockville pops up
         tag = D02
         }
         SCS = { exists = yes }
+        NOT = { country_exists = ROC }
+        has_global_flag = equestrian_com_civil_war
     }
     mean_time_to_happen = { days = 10 }
     fire_only_once = yes 

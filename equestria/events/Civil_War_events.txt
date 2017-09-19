@@ -478,8 +478,18 @@ country_event = {
 
     option = {
     name = civwar.17.a
+    trigger = {
+        has_global_flag = equestrian_com_civil_war
+    }
     declare_war_on = { target = ROC type = annex_everything }
     declare_war_on = { target = EQS type = annex_everything }
+    }
+    option = {
+    name = civwar.17.b
+    trigger = {
+        has_global_flag = equestrian_civil_war
+    }
+    declare_war_on = { target = ROC type = annex_everything }
     }
 }
 country_event = {
